@@ -16,12 +16,16 @@ public class Gamemanager : MonoBehaviour
     public GameObject EndTxt;
 
     public int CardCount=0;
+<<<<<<< HEAD
     float time = 0.00f;                     //-8초(임시)
 
     public Text matchTxt; //매치 시도 횟수 ui텍스트
     int matchCount = 0;   //매치 시도 횟수 변수
 
     public Slider limitBar;    //제한시간 ui
+=======
+    public float time = 0.00f;                     //-8초(임시)
+>>>>>>> 8fe02dd3d943b8ca5bbaaa1270f3bda360cf4c0c
     private void Awake()
     {
         if (instance == null)
@@ -50,6 +54,7 @@ public class Gamemanager : MonoBehaviour
             EndTxt.SetActive(true);
 
         }
+<<<<<<< HEAD
         matchTxt.text = ("매치 횟수 : " + matchCount);  //매치 시도 횟수 표시
 
         if (fristCard != null)
@@ -67,6 +72,8 @@ public class Gamemanager : MonoBehaviour
             limitBar.gameObject.SetActive(false); //첫번째 카드를 뒤집지 않았거나 다시 원래대로 돌려놓을 경우 시간제한 ui 숨김
             limitBar.value = 5f;                  //시간제한 초기화
         }
+=======
+>>>>>>> 8fe02dd3d943b8ca5bbaaa1270f3bda360cf4c0c
     }
 
 
@@ -78,7 +85,6 @@ public class Gamemanager : MonoBehaviour
             fristCard.DestoryCard();
             secondCard.DestoryCard();
             time -= 2.0f;
-            matchCount++;   	//매치 시도 시 횟수 증가
             CardCount -= 2;
             if(CardCount == 0)
             {
@@ -90,7 +96,6 @@ public class Gamemanager : MonoBehaviour
         {
             fristCard.CloseCard();
             secondCard.CloseCard();
-            matchCount++;   	//매치 시도 시 횟수 증가
             time += 1.0f;
         }
         fristCard = null;

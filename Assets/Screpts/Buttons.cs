@@ -12,6 +12,12 @@ public class Buttons : MonoBehaviour
         StageImg.SetActive(true);
     }
 
+    public void StageScene()
+    {
+        AudioManager.instance.ChangeMusic(0);
+        StageSelect();
+    }
+
     // 게임 재시작, 시작할 때 씬 이동
     public void GameStart()
     {
