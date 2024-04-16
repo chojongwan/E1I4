@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using UnityEngine;
-using System.Collections.Generic;
-
 public class Board : MonoBehaviour
 {
     public GameObject card;
@@ -46,7 +43,7 @@ public class Board : MonoBehaviour
 
         for (int i = arr.Count - 1; i > 0; i--)
         {
-            int j = Random.Range(0, i + 1);
+            int j = Random.Range(0, i + 1);             //The part that sets the array at random
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
