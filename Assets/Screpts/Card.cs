@@ -21,15 +21,10 @@ public class Card : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    void Update()
-    {
-        
-    }
     public void Setting(int number)
     {
         idx = number;
         frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");        //idx값이 카드의 번호값
-
     }
     public void OpenCard()
     {

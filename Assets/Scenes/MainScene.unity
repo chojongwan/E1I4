@@ -329,7 +329,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3e51f23325f7540b04e6d275e039ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 282caedfa1b19c544a53eb3e4177d535, type: 3}
+  clip:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &467447647
 Transform:
   m_ObjectHideFlags: 0
@@ -670,7 +673,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1879369397}
         m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
-        m_MethodName: GameStart
+        m_MethodName: GameReStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -729,6 +732,7 @@ MonoBehaviour:
   TimeTxt: {fileID: 1893657311}
   EndTxt: {fileID: 1801855334}
   CardCount: 0
+  time: 0
   matchTxt: {fileID: 396573921}
 --- !u!4 &1817498472
 Transform:
