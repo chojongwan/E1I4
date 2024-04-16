@@ -22,6 +22,7 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);                    //싱글톤이 2개가 존재할때 instance가 이미 있으므로 나머지를 파괴하여 하나만 존재케하는 코드
         }
     }
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -29,21 +30,16 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
-    private void Update()
+    public void ChangeMusic(int Number)
     {
-        ChangeMusic(1);
-    }
-
-    public void ChangeMusic(int Check)
-    {
-        if (Check == 0)
+        if (Number == 0)
         {
-            instance.audioSource.clip = clip[Check];
+            instance.audioSource.clip = clip[Number];
             instance.audioSource.Play();
         }
-        if (Gamemanager.instance?.time > 15.0f && ChangeCheck && Check == 1)
+        if (Number == 1 && ChangeCheck && Gamemanager.instance?.time > 15.0f)
         {
-            instance.audioSource.clip = clip[Check];
+            instance.audioSource.clip = clip[Number];
             instance.audioSource.Play();
             ChangeCheck = false;
         }
