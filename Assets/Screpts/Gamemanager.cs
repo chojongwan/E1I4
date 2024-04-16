@@ -16,7 +16,7 @@ public class Gamemanager : MonoBehaviour
     public GameObject EndTxt;
 
     public int CardCount=0;
-    float time = 0.00f;                     //-8초(임시)
+    public float time = 0.00f;                     //-8초(임시)
     private void Awake()
     {
         if (instance == null)
