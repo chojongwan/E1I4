@@ -66,7 +66,7 @@ public class Gamemanager : MonoBehaviour
         {
             fristCard.CloseCard();
             secondCard.CloseCard();
-            time += 3.0f;
+            time += 1.0f;
         }
         fristCard = null;
         secondCard = null;
