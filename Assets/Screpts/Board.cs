@@ -48,7 +48,7 @@ public class Board : MonoBehaviour
             go.transform.position = new Vector2(x, y);
             go.GetComponent<Card>().Setting(arr[i]);
 
-            yield return new WaitForSeconds(0.2f); // 2√ ¿« µÙ∑π¿Ã
+            yield return new WaitForSeconds(0.1f); // 2√ ¿« µÙ∑π¿Ã
         }
 
         Gamemanager.instance.CardCount = arr.Count;
