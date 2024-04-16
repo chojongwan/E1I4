@@ -25,6 +25,7 @@ public class Gamemanager : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine("TextChange");
         Debug.Log("매니져");
         Time.timeScale = 1f;
         audioSource = GetComponent<AudioSource>();
@@ -69,4 +70,18 @@ public class Gamemanager : MonoBehaviour
         
     }
 
+
+    IEnumerator TextChange()
+    {
+        // 15초 딜레이를 부여
+        yield return new WaitForSeconds(15.0f);
+        // 글씨(하양 => 빨강 / 빨강 => 하양)으로 계속 변경
+        while (true)
+        {
+            TimeTxt.color = new Color(255, 0, 0);
+            yield return new WaitForSeconds(0.5f);
+            TimeTxt.color = new Color(255, 255, 255);
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
 }
