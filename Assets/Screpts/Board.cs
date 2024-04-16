@@ -5,54 +5,68 @@ using System.Linq;
 public class Board : MonoBehaviour
 {
     public GameObject card;
+
     void Start()
     {
-        Debug.Log("보드");
-        //Time.timeScale = 0f;
-        StartCoroutine("SpawnCardsWithDelay", PlayerPrefs.GetInt("StageCard"));
+        int cardCount = PlayerPrefs.GetInt("StageCard");
+        StartCoroutine(SpawnCardsWithDelay(cardCount));
     }
 
     IEnumerator SpawnCardsWithDelay(int cardCount)
     {
-        // int형 List arr를 선언 후 cardCount만큼 List에 저장
-        List<int> arr = new List<int>();
-        for (int i = 0; i < cardCount; i++)
-        {
-            arr.Add(i);
-            arr.Add(i);
-        }
-        // arr의 값을 랜덤으로 섞어서 배치
-        arr = arr.OrderBy(x => Random.Range(0f, cardCount - 1)).ToList(); //Linq를 사용한곳
-        
+        List<int> arr = RandomArray(cardCount);
+
         for (int i = 0; i < arr.Count; i++)
         {
             GameObject go = Instantiate(card, this.transform);
 
             float x = (i % 4) * 1.4f - 2.1f;
-            float y;
-
-            // 난이도(카드 수)에 따라서 생성되는 카드 위치 변경
-            if (cardCount == 6)
-            {
-                y = (i / 4) * 1.4f - 1.8f;
-            }
-            else if (cardCount == 8)
-            {
-                y = (i / 4) * 1.4f - 3.0f;
-            }
-            else
-            {
-                y = (i / 4) * 1.4f - 3.8f;
-            }
+            float y = CalculateYPosition(i, cardCount);
 
             go.transform.position = new Vector2(x, y);
             go.GetComponent<Card>().Setting(arr[i]);
 
-            yield return new WaitForSeconds(0.1f); // 2초의 딜레이
+            yield return new WaitForSeconds(0.1f);
         }
 
         Gamemanager.instance.CardCount = arr.Count;
-        //Time.timeScale = 1f;
-        
+    }
+
+    List<int> RandomArray(int count)
+    {
+        List<int> arr = new List<int>();
+        for (int i = 0; i < count; i++)
+        {
+            arr.Add(i);
+            arr.Add(i);
+        }
+
+        for (int i = arr.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);             //The part that sets the array at random
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+
+        return arr;
+    }
+
+    float CalculateYPosition(int index, int cardCount)
+    {
+        float y;
+        switch (cardCount)
+        {
+            case 6:
+                y = (index / 4) * 1.4f - 1.8f;
+                break;
+            case 8:
+                y = (index / 4) * 1.4f - 3.0f;
+                break;
+            default:
+                y = (index / 4) * 1.4f - 3.8f;
+                break;
+        }
+        return y;
     }
 }

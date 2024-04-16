@@ -17,6 +17,9 @@ public class Gamemanager : MonoBehaviour
 
     public int CardCount=0;
     float time = 0.00f;                     //-8초(임시)
+
+    public Text matchTxt; //매치 시도 횟수 ui텍스트
+    int matchCount = 0;   //매치 시도 횟수 변수
     private void Awake()
     {
         if (instance == null)
@@ -45,6 +48,7 @@ public class Gamemanager : MonoBehaviour
             EndTxt.SetActive(true);
 
         }
+        matchTxt.text = ("매치 횟수 : " + matchCount);  //매치 시도 횟수 표시
     }
 
 
@@ -56,6 +60,7 @@ public class Gamemanager : MonoBehaviour
             fristCard.DestoryCard();
             secondCard.DestoryCard();
             time -= 2.0f;
+            matchCount++;   	//매치 시도 시 횟수 증가
             CardCount -= 2;
             if(CardCount == 0)
             {
@@ -67,6 +72,7 @@ public class Gamemanager : MonoBehaviour
         {
             fristCard.CloseCard();
             secondCard.CloseCard();
+            matchCount++;   	//매치 시도 시 횟수 증가
             time += 1.0f;
         }
         fristCard = null;
