@@ -5,27 +5,37 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Gamemanager : MonoBehaviour
 {
+
     public static Gamemanager instance;
     public Card fristCard;
     public Card secondCard;
 
     AudioSource audioSource;
     public AudioClip clip;
-    public AudioSource failAudioSource; //실패 오디오 추가
-    public AudioClip failClip; //실패 오디오 추가
-
+    public AudioClip failClip;
     public Text TimeTxt;
-    public Text memberNameText;
     public GameObject EndTxt;
+    public GameObject SuccessTxt; // SuccessTxt
+    public GameObject FailureTxt;
 
-    public GameObject SuccessTxt; //성공 텍스트 추가
-    public GameObject FailureTxt; //실패 텍스트 추가
+    public void PlayFailSound()
+    {
+        audioSource.PlayOneShot(failClip);
+    }
+
+    public class CardInfo
+    {
+        public string name;     // 팀원 이름
+        public string imageName; // 카드의 이미지 이름
+    }
 
     public int CardCount=0;
-    float time = 0.00f;                     //-8초(임시)
+    public float time = 0.00f;                     //-8초(임시)
 
     public Text matchTxt; //매치 시도 횟수 ui텍스트
     int matchCount = 0;   //매치 시도 횟수 변수
+
+    public Slider limitBar;    //제한시간 ui
     private void Awake()
     {
         if (instance == null)
@@ -42,6 +52,7 @@ public class Gamemanager : MonoBehaviour
         Time.timeScale = 1f;
         audioSource = GetComponent<AudioSource>();
         //Board.instance.ReceiveValueToModify(time);
+
     }
 
     void Update()
@@ -55,6 +66,22 @@ public class Gamemanager : MonoBehaviour
 
         }
         matchTxt.text = ("매치 횟수 : " + matchCount);  //매치 시도 횟수 표시
+
+        if (fristCard != null)
+        {
+            limitBar.gameObject.SetActive(true);  //첫번째 카드가 뒤집어 졌을 때 시간제한 ui표시
+            limitBar.value -= Time.deltaTime;     //시간 제한 ui가 줄어듦
+            if (limitBar.value <= 0.0f)
+            {
+                fristCard.CloseCardInvoke();            //시간제한 게이지가 전부 줄어들 시 첫번째 카드를 되돌려놓음
+                fristCard = null;
+            }
+        }
+        else
+        {
+            limitBar.gameObject.SetActive(false); //첫번째 카드를 뒤집지 않았거나 다시 원래대로 돌려놓을 경우 시간제한 ui 숨김
+            limitBar.value = 5f;                  //시간제한 초기화
+        }
     }
 
     public void DestroyTxt()
@@ -63,13 +90,8 @@ public class Gamemanager : MonoBehaviour
         FailureTxt.SetActive(false);
     }
 
-    public void PlayFailSound()
-    {
-        failAudioSource.PlayOneShot(failClip);
-    }
-
     public void Matched()
-    {
+    { 
         if (fristCard.idx == secondCard.idx)
         {
             audioSource.PlayOneShot(clip);
@@ -85,25 +107,22 @@ public class Gamemanager : MonoBehaviour
                 Time.timeScale = 0f;
             }
         }
+
         else
         {
             fristCard.CloseCard();
             secondCard.CloseCard();
             matchCount++;   	//매치 시도 시 횟수 증가
             time += 1.0f;
-
             FailureTxt.SetActive(true);
-            Invoke("DestroyTxt", 0.5f); //실패 효과
-
-            PlayFailSound(); //실패 사운드
+            PlayFailSound();  // 실패 효과음 재생
+            Invoke("DestroyTxt", 0.5f);
         }
 
         fristCard = null;
         secondCard = null;
         
     }
-
-
 
     IEnumerator TextChange()
     {
