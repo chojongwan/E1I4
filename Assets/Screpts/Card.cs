@@ -29,6 +29,7 @@ public class Card : MonoBehaviour
     {
         idx = number;
         frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");        //idx값이 카드의 번호값
+        
 
     }
     public void OpenCard()
