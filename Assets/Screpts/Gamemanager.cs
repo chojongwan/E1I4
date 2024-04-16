@@ -52,7 +52,7 @@ public class Gamemanager : MonoBehaviour
             Time.timeScale = 0.0f;
             ResultText(1);
         }
-        matchTxt.text = ("매치 횟수 : " + matchCount);  //매치 시도 횟수 표시
+        matchTxt.text = ("매치 : " + matchCount);  //매치 시도 횟수 표시
 
         if (fristCard != null)
         {
