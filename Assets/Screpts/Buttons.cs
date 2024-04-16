@@ -16,7 +16,6 @@ public class Buttons : MonoBehaviour
     public void GameStart()
     {
         SceneManager.LoadScene("MainScene");
-        AudioManager.instance.ChangeMusic(1);
     }
 
     // 1스테이지

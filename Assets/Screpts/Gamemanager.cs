@@ -16,7 +16,7 @@ public class Gamemanager : MonoBehaviour
     public GameObject EndTxt;
 
     public int CardCount=0;
-    public float time = 0.00f;                     //-8초(임시)
+    float time = 0.00f;                     //-8초(임시)
 
     public Text matchTxt; //매치 시도 횟수 ui텍스트
     int matchCount = 0;   //매치 시도 횟수 변수
@@ -51,6 +51,7 @@ public class Gamemanager : MonoBehaviour
         matchTxt.text = ("매치 횟수 : " + matchCount);  //매치 시도 횟수 표시
     }
 
+
     public void Matched()
     {
         if (fristCard.idx == secondCard.idx)
@@ -76,6 +77,7 @@ public class Gamemanager : MonoBehaviour
         }
         fristCard = null;
         secondCard = null;
+        
     }
 
 

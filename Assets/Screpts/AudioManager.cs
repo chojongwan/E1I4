@@ -7,9 +7,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;    
 
     AudioSource audioSource;
-    public AudioClip[] clip;
-    private bool ChangeCheck = true;
-
+    public AudioClip clip;
     private void Awake()
     {
         if (instance == null)
@@ -22,26 +20,10 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);                    //싱글톤이 2개가 존재할때 instance가 이미 있으므로 나머지를 파괴하여 하나만 존재케하는 코드
         }
     }
-
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = clip[0];
+        audioSource.clip = clip;
         audioSource.Play();
-    }
-
-    public void ChangeMusic(int Number)
-    {
-        if (Number == 0)
-        {
-            instance.audioSource.clip = clip[Number];
-            instance.audioSource.Play();
-        }
-        if (Number == 1 && ChangeCheck && Gamemanager.instance?.time > 15.0f)
-        {
-            instance.audioSource.clip = clip[Number];
-            instance.audioSource.Play();
-            ChangeCheck = false;
-        }
     }
 }
