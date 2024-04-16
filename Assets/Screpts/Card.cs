@@ -65,7 +65,7 @@ public class Card : MonoBehaviour
     {
         Invoke("CloseCardInvoke", 1f);
     }
-    void CloseCardInvoke()
+    public void CloseCardInvoke()     //게임매니저에서 사용하기 위해 퍼블릭 추가
     {
         anim.SetBool("IsOpen",false);
         front.SetActive(false);
