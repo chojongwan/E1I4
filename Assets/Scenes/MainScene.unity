@@ -490,10 +490,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 415abd21d1d6dcc48a3fa758cdf52383, type: 3}
-    m_FontSize: 300
+    m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 1
     m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -501,7 +501,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: x
+  m_Text: "\uC2E4\uD328!"
 --- !u!222 &544150276
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -575,12 +575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c10434d0c03e4c8e16a1733a4ba09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  memberNames:
-  - "\uC774\uB3D9\uD6C8"
-  - "\uACE0\uC9C0\uD6C4"
-  - "\uC870\uC885\uC644"
-  - "\uC774\uC7AC\uD615"
-  - "\uD558\uC601\uBE48"
   card: {fileID: 6274831034990903388, guid: 3ce055681f145eb4792eb0278cc75231, type: 3}
 --- !u!1 &1176282673
 GameObject:
@@ -837,6 +831,7 @@ MonoBehaviour:
   failAudioSource: {fileID: 1817498473}
   failClip: {fileID: 8300000, guid: 82c8763b026544f408ed58b2739caa5f, type: 3}
   TimeTxt: {fileID: 1893657311}
+  memberNameText: {fileID: 0}
   EndTxt: {fileID: 1801855334}
   SuccessTxt: {fileID: 2010969392}
   FailureTxt: {fileID: 544150273}
