@@ -13,7 +13,10 @@ public class Gamemanager : MonoBehaviour
     AudioSource audioSource;
     public AudioClip clip;
     public Text TimeTxt;
-    public GameObject EndTxt;
+    public GameObject ResultImg;
+    public Text scoreText; // 점수
+    public Text timeText;  // 남은 시간
+    public Text ClearText; // 클리어 텍스트
 
     public int CardCount=0;
     public float time = 0.00f;                     //-8초(임시)
@@ -47,8 +50,7 @@ public class Gamemanager : MonoBehaviour
         if (time > 30.0f)
         {
             Time.timeScale = 0.0f;
-            EndTxt.SetActive(true);
-
+            ResultText(1);
         }
         matchTxt.text = ("매치 횟수 : " + matchCount);  //매치 시도 횟수 표시
 
@@ -69,6 +71,24 @@ public class Gamemanager : MonoBehaviour
         }
     }
 
+    public void ResultText(int number)
+    {
+        ResultImg.SetActive(true);
+        if (number == 0)
+        {
+            ClearText.text = "Game Clear!!!";
+            float TT = 30 - time;
+            timeText.text = TT.ToString("N0");
+        }
+        else
+        {
+            ClearText.text = "Game Over...";
+            timeText.text = "X";
+        }
+        int ST = 1000 - matchCount * 2;
+        scoreText.text = ST.ToString();
+    }
+
     public void Matched()
     {
         if (fristCard.idx == secondCard.idx)
@@ -81,7 +101,7 @@ public class Gamemanager : MonoBehaviour
             CardCount -= 2;
             if(CardCount == 0)
             {
-                EndTxt.SetActive(true);
+                ResultText(0);
                 Time.timeScale = 0f;
             }
         }

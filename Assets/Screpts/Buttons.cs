@@ -24,6 +24,12 @@ public class Buttons : MonoBehaviour
         AudioManager.instance.ChangeMusic(0);
     }
 
+    public void Lobby()
+    {
+        SceneManager.LoadScene("StartScene");
+        AudioManager.instance.ChangeMusic(0);
+    }
+
     // 1스테이지
     public void Stage1()
     {
