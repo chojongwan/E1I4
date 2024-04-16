@@ -7,7 +7,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;    
 
     AudioSource audioSource;
-    public AudioClip clip;
+    public AudioClip[] clip;
+    private bool soundCheck = true;
+
     private void Awake()
     {
         if (instance == null)
@@ -23,7 +25,28 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = clip;
+        audioSource.clip = clip[0];
         audioSource.Play();
+    }
+
+    private void Update()
+    {
+        ChangeMusic(1);
+    }
+
+    public void ChangeMusic(int number)
+    {
+        if (number==0)
+        {
+            audioSource.clip = clip[0];
+            audioSource.Play();
+        }
+
+        if(Gamemanager.instance?.time > 15.0f && soundCheck && number==1)
+        {
+            audioSource.clip = clip[1];
+            audioSource.Play();
+            soundCheck = false;
+        }
     }
 }
