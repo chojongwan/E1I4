@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Gamemanager : MonoBehaviour
 {
+
     public static Gamemanager instance;
     public Card fristCard;
     public Card secondCard;
@@ -36,6 +37,7 @@ public class Gamemanager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("ddddd");
         time += Time.deltaTime;
         TimeTxt.text = time.ToString("N2");
         if (time > 30.0f)
