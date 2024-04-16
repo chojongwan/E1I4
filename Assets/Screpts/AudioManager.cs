@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
         }
         instance.soundCheck = true;
     }
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
