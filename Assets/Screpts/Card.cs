@@ -11,7 +11,6 @@ public class Card : MonoBehaviour
     public GameObject back;
     public GameObject back_Un;      //Ãß°¡
 
-
     public Animator anim;
     AudioSource audioSource;
     public AudioClip clip;

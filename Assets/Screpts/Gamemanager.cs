@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Gamemanager : MonoBehaviour
 {
-
     public static Gamemanager instance;
     public Card fristCard;
     public Card secondCard;
@@ -13,7 +12,7 @@ public class Gamemanager : MonoBehaviour
     AudioSource audioSource;
     public AudioClip clip;
     public Text TimeTxt;
-    public GameObject ResultImg;
+    public GameObject ResultImg; // 점수판
     public Text scoreText; // 점수
     public Text timeText;  // 남은 시간
     public Text ClearText; // 클리어 텍스트
@@ -47,6 +46,8 @@ public class Gamemanager : MonoBehaviour
     {
         time += Time.deltaTime;
         TimeTxt.text = time.ToString("N2");
+        
+        // 30초 즉 게임시간이 끝이 난다면
         if (time > 30.0f)
         {
             Time.timeScale = 0.0f;
@@ -71,20 +72,25 @@ public class Gamemanager : MonoBehaviour
         }
     }
 
+    // 게임 종료 후 점수판
     public void ResultText(int number)
     {
+        // 점수판 활성화
         ResultImg.SetActive(true);
+        // number == 0 즉 게임 클리어했을 경우
         if (number == 0)
         {
             ClearText.text = "Game Clear!!!";
             float TT = 30 - time;
             timeText.text = TT.ToString("N0");
         }
+        // 그 외는 게임 오버
         else
         {
             ClearText.text = "Game Over...";
             timeText.text = "X";
         }
+        // 점수는 기본 1000에 매칭 횟수의 2배를 뺌
         int ST = 1000 - matchCount * 2;
         scoreText.text = ST.ToString();
     }
@@ -113,8 +119,7 @@ public class Gamemanager : MonoBehaviour
             time += 1.0f;
         }
         fristCard = null;
-        secondCard = null;
-        
+        secondCard = null;   
     }
 
     IEnumerator TextChange()
