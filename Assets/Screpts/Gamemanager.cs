@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,7 @@ public class Gamemanager : MonoBehaviour
 
     void Start()
     {
+        // 시작 시 코루틴 시작
         StartCoroutine("TextChange");
         Debug.Log("매니져");
         Time.timeScale = 1f;
@@ -34,7 +36,6 @@ public class Gamemanager : MonoBehaviour
 
     void Update()
     {
-
         time += Time.deltaTime;
         TimeTxt.text = time.ToString("N2");
         if (time > 30.0f)
@@ -44,6 +45,8 @@ public class Gamemanager : MonoBehaviour
 
         }
     }
+
+
     public void Matched()
     {
         if (fristCard.idx == secondCard.idx)
@@ -71,17 +74,25 @@ public class Gamemanager : MonoBehaviour
     }
 
 
+
     IEnumerator TextChange()
     {
-        // 15초 딜레이를 부여
-        yield return new WaitForSeconds(15.0f);
         // 글씨(하양 => 빨강 / 빨강 => 하양)으로 계속 변경
         while (true)
         {
-            TimeTxt.color = new Color(255, 0, 0);
-            yield return new WaitForSeconds(0.5f);
-            TimeTxt.color = new Color(255, 255, 255);
-            yield return new WaitForSeconds(0.5f);
+            // 15초가 지나면 텍스트 반복 변경 
+            if (time > 15)
+            {
+                TimeTxt.color = new Color(255, 0, 0);
+                yield return new WaitForSeconds(0.5f);
+                TimeTxt.color = new Color(255, 255, 255);
+                yield return new WaitForSeconds(0.5f);
+            }
+            // 지나지 않으면 변경 X
+            else
+            {
+                yield return 0;
+            }
         }
     }
 }
