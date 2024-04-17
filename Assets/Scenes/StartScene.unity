@@ -274,10 +274,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "1. \uB9C8\uC6B0\uC2A4\uB97C \uC774\uC6A9\uD558\uC5EC \n    \uCE74\uB4DC\uB97C
+  m_Text: "1. \uB9C8\uC6B0\uC2A4\uB97C \uC774\uC6A9\uD558\uC5EC \n\uCE74\uB4DC\uB97C
     \uC120\uD0DD\uD55C\uB2E4\n\n2. \uCE74\uB4DC\uAC00 \uB4A4\uC9D1\uC5B4\uC9C0\uACE0
-    \n    \uB450\uBC88\uC9F8 \uCE74\uB4DC\uB97C \uC120\uD0DD\uD55C\uB2E4\n\n3. \uC11C\uB85C
-    \uC77C\uCE58\uD558\uBA74 \n    \uCE74\uB4DC\uAC00 \uC0AD\uC81C \uB41C\uB2E4"
+    \n  \uB450\uBC88\uC9F8 \uCE74\uB4DC\uB97C \uC120\uD0DD\uD55C\uB2E4\n\n3. \uC11C\uB85C
+    \uC77C\uCE58\uD558\uBA74 \n\uCE74\uB4DC\uAC00 \uC0AD\uC81C \uB41C\uB2E4"
 --- !u!222 &121338971
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1673,7 +1673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1090411221
 MonoBehaviour:
   m_ObjectHideFlags: 0
