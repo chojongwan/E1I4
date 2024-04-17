@@ -33,17 +33,21 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
+        // 노래 변경
         ChangeMusic(1);
     }
 
+    // 노래 변경
     public void ChangeMusic(int number)
     {
+        // 느린 노래
         if (number==0)
         {
             audioSource.clip = clip[0];
             audioSource.Play();
         }
 
+        // 빠른 노래
         if(Gamemanager.instance?.time > 15.0f && soundCheck && number==1)
         {
             audioSource.clip = clip[1];

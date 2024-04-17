@@ -7,6 +7,7 @@ public class Buttons : MonoBehaviour
 {
     public GameObject StageImg;
 
+    // 스테이지 선택지를 활성화 시키는 기능
     public void StageSelect()
     {
         StageImg.SetActive(true);
@@ -18,12 +19,14 @@ public class Buttons : MonoBehaviour
         SceneManager.LoadScene("MainScene");
     }
 
+    // Start씬에서 게임 시작버튼 기능
     public void GameReStart()
     {
         SceneManager.LoadScene("MainScene");
         AudioManager.instance.ChangeMusic(0);
     }
 
+    // 처음 게임 씬으로 이동하는 기능
     public void Lobby()
     {
         SceneManager.LoadScene("StartScene");
