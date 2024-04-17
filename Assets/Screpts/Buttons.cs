@@ -30,10 +30,6 @@ public class Buttons : MonoBehaviour
         AudioManager.instance.ChangeMusic(0);
     }
 
-<<<<<<< HEAD
-    // 규칙 이미지 활성화 기능
-=======
->>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
     public void RuleButton()
     {
         RuleImg.SetActive(true);

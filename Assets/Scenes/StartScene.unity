@@ -155,7 +155,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1090411223}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 4
+=======
+  m_RootOrder: 5
+>>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
 =======
   m_RootOrder: 5
 >>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
@@ -1050,7 +1054,11 @@ RectTransform:
   - {fileID: 416722403}
   m_Father: {fileID: 1090411223}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 5
+=======
+  m_RootOrder: 1
+>>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
 =======
   m_RootOrder: 1
 >>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
@@ -1471,6 +1479,10 @@ RectTransform:
   - {fileID: 1876442484}
   - {fileID: 143694302}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  - {fileID: 1873394943}
+>>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
 =======
   - {fileID: 1873394943}
 >>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
@@ -1647,6 +1659,10 @@ RectTransform:
   m_Children:
   - {fileID: 414241869}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  - {fileID: 639938216}
+>>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
 =======
   - {fileID: 639938216}
 >>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
@@ -1655,7 +1671,10 @@ RectTransform:
   - {fileID: 1491915796}
   - {fileID: 121338969}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 639938216}
+=======
+>>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
 =======
 >>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
   m_Father: {fileID: 856797404}
@@ -1778,7 +1797,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1090411223}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 1
+=======
+  m_RootOrder: 2
+>>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
 =======
   m_RootOrder: 2
 >>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
@@ -2018,7 +2041,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1090411223}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 3
+=======
+  m_RootOrder: 4
+>>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
 =======
   m_RootOrder: 4
 >>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
@@ -2484,7 +2511,11 @@ RectTransform:
   - {fileID: 1119727863}
   m_Father: {fileID: 856797404}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 2
+=======
+  m_RootOrder: 4
+>>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
 =======
   m_RootOrder: 4
 >>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
@@ -2733,7 +2764,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1090411223}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 2
+=======
+  m_RootOrder: 3
+>>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
 =======
   m_RootOrder: 3
 >>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
