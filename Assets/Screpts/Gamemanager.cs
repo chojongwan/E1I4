@@ -19,6 +19,7 @@ public class Gamemanager : MonoBehaviour
     public Text ClearText; // 클리어 텍스트
     public GameObject TeamNameTxt; // 팀원 이름 텍스트
     public GameObject FailureTxt; // 실패 텍스트
+    bool GameEnd = true;
 
     public void PlayFailSound()
     {
@@ -57,9 +58,10 @@ public class Gamemanager : MonoBehaviour
         TimeTxt.text = time.ToString("N2");
         
         // 30초 즉 게임시간이 끝이 난다면
-        if (time > 30.0f)
+        if (time > 30.0f && GameEnd)
         {
             Time.timeScale = 0.0f;
+            GameEnd = false;
             ResultText(1);
         }
         matchTxt.text = ("매치 : " + matchCount);  //매치 시도 횟수 표시
@@ -162,8 +164,8 @@ public class Gamemanager : MonoBehaviour
 
             if (CardCount == 0)
             {
-                ResultText(0);
                 Time.timeScale = 0f;
+                ResultText(0);
                 DestroyTxt();
             }
         }
