@@ -3063,7 +3063,6 @@ MonoBehaviour:
   TeamNameTxt: {fileID: 1603717823}
   FailureTxt: {fileID: 888887921}
   stage: 0
-  highScoreTxt: {fileID: 521011463}
   CardCount: 0
   time: 0
   matchTxt: {fileID: 396573921}
