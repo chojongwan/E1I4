@@ -46,6 +46,11 @@ public class AudioManager : MonoBehaviour
             audioSource.clip = clip[0];
             audioSource.Play();
         }
+        else if(number == 2)
+        {
+            audioSource.clip = clip[2];
+            audioSource.Play();
+        }
 
         // 빠른 노래
         if(Gamemanager.instance?.time > 15.0f && soundCheck && number==1)

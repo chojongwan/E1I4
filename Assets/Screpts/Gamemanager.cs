@@ -86,6 +86,8 @@ public class Gamemanager : MonoBehaviour
     {
         // 점수판 활성화
         ResultImg.SetActive(true);
+        // 결과창 노래 출력
+        AudioManager.instance.ChangeMusic(2);
         // number == 0 즉 게임 클리어했을 경우
         if (number == 0)
         {
