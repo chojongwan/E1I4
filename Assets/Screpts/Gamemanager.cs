@@ -132,6 +132,10 @@ public class Gamemanager : MonoBehaviour
             fristCard.DestoryCard();
             secondCard.DestoryCard();
             time -= 2.0f;
+            if(time < 0)
+            {
+                time = 0;
+            }
             matchCount++;   	//매치 시도 시 횟수 증가
             CardCount -= 2;
 
