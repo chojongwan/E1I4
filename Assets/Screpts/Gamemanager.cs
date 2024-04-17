@@ -90,8 +90,8 @@ public class Gamemanager : MonoBehaviour
             ClearText.text = "Game Over...";
             timeText.text = "X";
         }
-        // 점수는 기본 1000에 매칭 횟수의 2배를 뺌
-        int ST = 1000 - matchCount * 2;
+        // 점수는 기본 1000에 매칭 횟수의 2배에 남은 시간 당 100점을 더함
+        int ST = 1000 - matchCount * 2 + (30 - (int)time) * 100;
         scoreText.text = ST.ToString();
     }
 
@@ -111,6 +111,7 @@ public class Gamemanager : MonoBehaviour
                 Time.timeScale = 0f;
             }
         }
+        
         else
         {
             fristCard.CloseCard();
