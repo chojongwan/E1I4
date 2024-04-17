@@ -25,8 +25,11 @@ public class Gamemanager : MonoBehaviour
     public GameObject SuccessTxt; // 성공 텍스트
     public GameObject FailureTxt; // 실패 텍스트
     bool GameEnd = true; // 게임 끝났는지 여부
-
+   
+    public int ST;    //현재 점수
     public int stage; //스테이지
+
+    string hSK;
 
     public static bool stage1Clear; //각 스테이지 클리어 불리언
     public static bool stage2Clear;
@@ -61,6 +64,9 @@ public class Gamemanager : MonoBehaviour
         Time.timeScale = 1f;
         audioSource = GetComponent<AudioSource>();
         //Board.instance.ReceiveValueToModify(time);
+
+        ScoreUi.instance.ShowHS(stage);
+
     }
 
     void Update()
@@ -93,18 +99,6 @@ public class Gamemanager : MonoBehaviour
         {
             limitBar.gameObject.SetActive(false); //첫번째 카드를 뒤집지 않았거나 다시 원래대로 돌려놓을 경우 시간제한 ui 숨김
             limitBar.value = 5f;                  //시간제한 초기화
-        }
-        if (stage == 1)
-        {
-            highScoreTxt.text = ("최고 기록 : " + PlayerPrefs.GetInt("HighScore1"));
-        }
-        else if (stage == 2)
-        {
-            highScoreTxt.text = ("최고 기록 : " + PlayerPrefs.GetInt("HighScore2"));
-        }
-        else if (stage == 3)
-        {
-            highScoreTxt.text = ("최고 기록 : " + PlayerPrefs.GetInt("HighScore3"));
         }
 
     }
@@ -150,54 +144,10 @@ public class Gamemanager : MonoBehaviour
 
         }
         // 점수는 기본 1000에 매칭 횟수의 2배에 남은 시간 당 100점을 더함
-        int ST = 1000 - matchCount * 30 + (30 - (int)time) * 100;
+        ST = 1000 - matchCount * 30 + (30 - (int)time) * 100;
         scoreText.text = ST.ToString();
 
-        if (stage == 1)          //스테이지 1일때
-        {
-            if (PlayerPrefs.HasKey("HighScore1"))               //스테이지 1의 하이스코어가 있다면
-            {
-                int hScore1 = PlayerPrefs.GetInt("HighScore1");     //하이스코어를 불러오고 현재 점수와 비교하여
-                if (hScore1 < ST)
-                {
-                    PlayerPrefs.SetInt("HighScore1", ST);       //저장
-                }
-            }
-            else                                                //아니라면
-            {
-                PlayerPrefs.SetInt("HighScore1", ST);           //그냥 저장
-            }
-        }
-        if (stage == 2)          //스테이지 2일때
-        {
-            if (PlayerPrefs.HasKey("HighScore2"))               //스테이지 2의 하이스코어가 있다면
-            {
-                int hScore2 = PlayerPrefs.GetInt("HighScore2");     //하이스코어를 불러오고 현재 점수와 비교하여
-                if (hScore2 < ST)
-                {
-                    PlayerPrefs.SetInt("HighScore2", ST);       //저장
-                }
-            }
-            else                                                //아니라면
-            {
-                PlayerPrefs.SetInt("HighScore2", ST);           //그냥 저장
-            }
-        }
-        if (stage == 3)          //스테이지 3일때
-        {
-            if (PlayerPrefs.HasKey("HighScore3"))               //스테이지 3의 하이스코어가 있다면
-            {
-                int hScore3 = PlayerPrefs.GetInt("HighScore3");     //하이스코어를 불러오고 현재 점수와 비교하여
-                if (hScore3 < ST)
-                {
-                    PlayerPrefs.SetInt("HighScore3", ST);       //저장
-                }
-            }
-            else                                                //아니라면
-            {
-                PlayerPrefs.SetInt("HighScore3", ST);           //그냥 저장
-            }
-        }
+        ScoreUi.instance.UpdateHighScore(stage, ST);
     }
 
     public void DestroyTxt() // 성공, 실패 텍스트 삭제용
