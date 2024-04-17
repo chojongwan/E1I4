@@ -4,20 +4,16 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class Buttons : MonoBehaviour
 {
     public GameObject StageImg;
     public GameObject RuleImg;
 
-    public GameObject unLock;
-
     // 스테이지 선택지를 활성화 시키는 기능
     public void StageSelect()
     {
         StageImg.SetActive(true);
-        PlayerPrefs.DeleteAll();
     }
 
     // 게임 재시작, 시작할 때 씬 이동
@@ -57,63 +53,39 @@ public class Buttons : MonoBehaviour
         {
             Gamemanager.instance.stage = 1;
         });
-
-        Gamemanager.stage1Clear = true;
+       
     }
 
     // 2스테이지
     public void Stage2()
     {
-        if (Gamemanager.stage1Clear)
+        PlayerPrefs.SetInt("StageCard", 8);
+        GameStart((scece, mode) =>
         {
-            
-            PlayerPrefs.SetInt("StageCard", 8);
-            GameStart((scece, mode) =>
-            {
-                Gamemanager.instance.stage = 2;
-            });
-        }
-        else
-        {
-            unLock.SetActive(true);
-            Invoke("InvokeUnLock", 0.5f);
-        }
+            Gamemanager.instance.stage = 2;
+        });
     }
 
     // 3스테이지
     public void Stage3()
     {
-        if (Gamemanager.stage2Clear)
+        PlayerPrefs.SetInt("StageCard", 10);
+        GameStart((scece, mode) =>
         {
-            PlayerPrefs.SetInt("StageCard", 10);
-            GameStart((scece, mode) =>
-            {
-                Gamemanager.instance.stage = 3;
-            });
-        }
-        else
-        {
-            unLock.SetActive(true);
-            Invoke("InvokeUnLock", 0.5f);
-        }
-    }
-
-    public void InvokeUnLock()
-    {
-        unLock.SetActive(false);
+            Gamemanager.instance.stage = 3;
+        });
     }
 
     public void Next() // 다음 스테이지로 가는 버튼
     {
-        if (Gamemanager.instance.stage == 1)
+        if (PlayerPrefs.GetInt("StageCard") == 6)
         {
             Stage2();
         }
-        else if (Gamemanager.instance.stage == 2)
+        else if (PlayerPrefs.GetInt("StageCard") == 8)
         {
             Stage3();
         }
-        
         AudioManager.instance.ChangeMusic(0);
         gameObject.SetActive(false);
     }
