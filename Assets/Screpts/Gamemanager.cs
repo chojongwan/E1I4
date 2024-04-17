@@ -99,12 +99,8 @@ public class Gamemanager : MonoBehaviour
             ClearText.text = "Game Over...";
             timeText.text = "X";
         }
-<<<<<<< HEAD
-        int ST = 1000 - matchCount * 2;
-=======
         // 점수는 기본 1000에 매칭 횟수의 2배에 남은 시간 당 100점을 더함
         int ST = 1000 - matchCount * 2 + (30 - (int)time) * 100;
->>>>>>> de76501472bc19e1575b49891b6d23fccfebc9b6
         scoreText.text = ST.ToString();
     }
 
@@ -125,34 +121,28 @@ public class Gamemanager : MonoBehaviour
             matchCount++;   	//매치 시도 시 횟수 증가
             CardCount -= 2;
 
-            int idx = -1;  // 초기값 설정
             string name = "";  // 이름 변수 추가
 
             switch (fristCard.idx)
             {
                 case 1:
                 case 6:
-                    idx = 1;
                     name = "고지후";
                     break;
                 case 2:
                 case 9:
-                    idx = 2;
                     name = "하영빈";
                     break;
                 case 3:
                 case 10:
-                    idx = 3;
                     name = "이동훈";
                     break;
                 case 4:
                 case 7:
-                    idx = 4;
                     name = "이재형";
                     break;
                 case 5:
                 case 8:
-                    idx = 5;
                     name = "조종완";
                     break;
             }
