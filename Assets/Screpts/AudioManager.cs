@@ -21,7 +21,9 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);                    //싱글톤이 2개가 존재할때 instance가 이미 있으므로 나머지를 파괴하여 하나만 존재케하는 코드
         }
+        instance.soundCheck = true;
     }
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();

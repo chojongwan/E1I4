@@ -23,8 +23,8 @@ public class Card : MonoBehaviour
 
     public void Setting(int number)
     {
-        idx = number;
-        frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");        //idx값이 카드의 번호값
+        idx = number+1;
+        frontImage.sprite = Resources.Load<Sprite>($"Team{idx}");        //idx값이 카드의 번호값
     }
     public void OpenCard()
     {
