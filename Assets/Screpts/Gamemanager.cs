@@ -21,6 +21,7 @@ public class Gamemanager : MonoBehaviour
     public GameObject next; // 다음 스테이지
     public GameObject TeamNameTxt; // 팀원 이름 텍스트
     public GameObject FailureTxt; // 실패 텍스트
+    bool GameEnd = true;
 
     public int stage; //스테이지
     public void PlayFailSound()
@@ -60,9 +61,10 @@ public class Gamemanager : MonoBehaviour
         TimeTxt.text = time.ToString("N2");
         
         // 30초 즉 게임시간이 끝이 난다면
-        if (time > 30.0f)
+        if (time > 30.0f && GameEnd)
         {
             Time.timeScale = 0.0f;
+            GameEnd = false;
             ResultText(1);
         }
         matchTxt.text = ("매치 : " + matchCount);  //매치 시도 횟수 표시
@@ -89,6 +91,8 @@ public class Gamemanager : MonoBehaviour
     {
         // 점수판 활성화
         ResultImg.SetActive(true);
+        // 결과창 노래 출력
+        AudioManager.instance.ChangeMusic(2);
         // number == 0 즉 게임 클리어했을 경우
         if (number == 0)
         {
@@ -110,7 +114,7 @@ public class Gamemanager : MonoBehaviour
 
         }
         // 점수는 기본 1000에 매칭 횟수의 2배에 남은 시간 당 100점을 더함
-        int ST = 1000 - matchCount * 2 + (30 - (int)time) * 100;
+        int ST = 1000 - matchCount * 30 + (30 - (int)time) * 100;
         scoreText.text = ST.ToString();
     }
 
@@ -170,8 +174,8 @@ public class Gamemanager : MonoBehaviour
 
             if (CardCount == 0)
             {
-                ResultText(0);
                 Time.timeScale = 0f;
+                ResultText(0);
                 DestroyTxt();
             }
         }
