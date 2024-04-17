@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 public class Gamemanager : MonoBehaviour
@@ -17,10 +18,12 @@ public class Gamemanager : MonoBehaviour
     public Text scoreText; // 점수
     public Text timeText;  // 남은 시간
     public Text ClearText; // 클리어 텍스트
+    public GameObject next; // 다음 스테이지
     public GameObject TeamNameTxt; // 팀원 이름 텍스트
     public GameObject FailureTxt; // 실패 텍스트
     bool GameEnd = true; // 게임 끝났는지 여부
 
+    public int stage; //스테이지
     public void PlayFailSound()
     {
         audioSource.PlayOneShot(failClip);
@@ -96,12 +99,19 @@ public class Gamemanager : MonoBehaviour
             ClearText.text = "Game Clear!!!";
             float TT = 30 - time;
             timeText.text = TT.ToString("N0");
+            if (stage < 3)
+            {
+                next.SetActive(true);
+            }
+           
         }
         // 그 외는 게임 오버
         else
         {
             ClearText.text = "Game Over...";
             timeText.text = "X";
+            next.SetActive(false);
+
         }
         // 점수는 기본 1000에 매칭 횟수의 2배에 남은 시간 당 100점을 더함
         int ST = 1000 - matchCount * 30 + (30 - (int)time) * 100;
