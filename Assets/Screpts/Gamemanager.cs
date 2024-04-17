@@ -80,6 +80,7 @@ public class Gamemanager : MonoBehaviour
             Time.timeScale = 0.0f;
             GameEnd = false;
             ResultText(1);
+            DestroyTxt(); // teamNameTxt, FailureTxt off
         }
        
         matchTxt.text = ("매치 : " + matchCount);  //매치 시도 횟수 표시
