@@ -3060,6 +3060,7 @@ MonoBehaviour:
   scoreText: {fileID: 1045312582}
   timeText: {fileID: 1214082809}
   ClearText: {fileID: 1306897733}
+  highScoreTxt: {fileID: 521011463}
   next: {fileID: 992290115}
   TeamNameTxt: {fileID: 1603717823}
   FailureTxt: {fileID: 888887921}
