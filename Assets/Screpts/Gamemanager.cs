@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,6 +26,11 @@ public class Gamemanager : MonoBehaviour
     bool GameEnd = true; // 게임 끝났는지 여부
 
     public int stage; //스테이지
+
+    public static bool stage1Clear; //각 스테이지 클리어 불리언
+    public static bool stage2Clear;
+    public static bool stage3Clear;
+
     public void PlayFailSound()
     {
         audioSource.PlayOneShot(failClip);
@@ -68,6 +74,7 @@ public class Gamemanager : MonoBehaviour
             GameEnd = false;
             ResultText(1);
         }
+       
         matchTxt.text = ("매치 : " + matchCount);  //매치 시도 횟수 표시
 
         if (fristCard != null)
@@ -114,11 +121,24 @@ public class Gamemanager : MonoBehaviour
             ClearText.text = "Game Clear!!!";
             float TT = 30 - time;
             timeText.text = TT.ToString("N0");
-            if (stage < 3)
+
+            if (stage == 1)
             {
                 next.SetActive(true);
+                stage1Clear = true;
             }
-           
+            else if (stage == 2)
+            {
+                next.SetActive(true);
+                if (CardCount == 0)
+                {
+                    stage2Clear = true;
+                }
+            }
+            else if(stage == 3)
+            {
+                next.SetActive(false);
+            }
         }
         // 그 외는 게임 오버
         else
