@@ -22,6 +22,7 @@ public class Gamemanager : MonoBehaviour
     public Text highScoreTxt; //최고기록 텍스트
     public GameObject next; // 다음 스테이지
     public GameObject TeamNameTxt; // 팀원 이름 텍스트
+    public GameObject SuccessTxt; // 성공 텍스트
     public GameObject FailureTxt; // 실패 텍스트
     bool GameEnd = true; // 게임 끝났는지 여부
 
@@ -203,6 +204,7 @@ public class Gamemanager : MonoBehaviour
     {
         TeamNameTxt.SetActive(false);
         FailureTxt.SetActive(false);
+        SuccessTxt.SetActive(false);
     }
 
     public void Matched()
@@ -250,7 +252,8 @@ public class Gamemanager : MonoBehaviour
             {
                 TeamNameTxt.GetComponent<Text>().text = name;  // 이름을 텍스트로 설정
                 TeamNameTxt.SetActive(true);
-                Invoke("DestroyTxt", 0.5f); // 팀이름 텍스트 삭제
+                SuccessTxt.SetActive(true);
+                Invoke("DestroyTxt", 1.3f); // 팀이름 텍스트 삭제
             }
             else
             {
