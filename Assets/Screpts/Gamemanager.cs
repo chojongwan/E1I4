@@ -100,7 +100,7 @@ public class Gamemanager : MonoBehaviour
             timeText.text = "X";
         }
         // 점수는 기본 1000에 매칭 횟수의 2배에 남은 시간 당 100점을 더함
-        int ST = 1000 - matchCount * 2 + (30 - (int)time) * 100;
+        int ST = 1000 - matchCount * 30 + (30 - (int)time) * 100;
         scoreText.text = ST.ToString();
     }
 

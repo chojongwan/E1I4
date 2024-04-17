@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 
     AudioSource audioSource;
     public AudioClip[] clip;
-    private bool soundCheck = true;
+    bool soundCheck = true;
 
     private void Awake()
     {
