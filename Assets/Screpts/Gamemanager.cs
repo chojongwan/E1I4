@@ -19,7 +19,7 @@ public class Gamemanager : MonoBehaviour
     public Text ClearText; // 클리어 텍스트
     public GameObject TeamNameTxt; // 팀원 이름 텍스트
     public GameObject FailureTxt; // 실패 텍스트
-    bool GameEnd = true;
+    bool GameEnd = true; // 게임 끝났는지 여부
 
     public void PlayFailSound()
     {
