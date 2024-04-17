@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Buttons : MonoBehaviour
 {
     public GameObject StageImg;
     public GameObject RuleImg;
+
+    public GameObject unLock;
 
     // 스테이지 선택지를 활성화 시키는 기능
     public void StageSelect()
@@ -53,39 +56,63 @@ public class Buttons : MonoBehaviour
         {
             Gamemanager.instance.stage = 1;
         });
-       
+
+        Gamemanager.stage1Clear = true;
     }
 
     // 2스테이지
     public void Stage2()
     {
-        PlayerPrefs.SetInt("StageCard", 8);
-        GameStart((scece, mode) =>
+        if (Gamemanager.stage1Clear)
         {
-            Gamemanager.instance.stage = 2;
-        });
+            
+            PlayerPrefs.SetInt("StageCard", 8);
+            GameStart((scece, mode) =>
+            {
+                Gamemanager.instance.stage = 2;
+            });
+        }
+        else
+        {
+            unLock.SetActive(true);
+            Invoke("InvokeUnLock", 0.5f);
+        }
     }
 
     // 3스테이지
     public void Stage3()
     {
-        PlayerPrefs.SetInt("StageCard", 10);
-        GameStart((scece, mode) =>
+        if (Gamemanager.stage2Clear)
         {
-            Gamemanager.instance.stage = 3;
-        });
+            PlayerPrefs.SetInt("StageCard", 10);
+            GameStart((scece, mode) =>
+            {
+                Gamemanager.instance.stage = 3;
+            });
+        }
+        else
+        {
+            unLock.SetActive(true);
+            Invoke("InvokeUnLock", 0.5f);
+        }
+    }
+
+    public void InvokeUnLock()
+    {
+        unLock.SetActive(false);
     }
 
     public void Next() // 다음 스테이지로 가는 버튼
     {
-        if (PlayerPrefs.GetInt("StageCard") == 6)
+        if (Gamemanager.instance.stage == 1)
         {
             Stage2();
         }
-        else if (PlayerPrefs.GetInt("StageCard") == 8)
+        else if (Gamemanager.instance.stage == 2)
         {
             Stage3();
         }
+        
         AudioManager.instance.ChangeMusic(0);
         gameObject.SetActive(false);
     }
