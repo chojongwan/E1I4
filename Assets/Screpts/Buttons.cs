@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class Buttons : MonoBehaviour
 {
     public GameObject StageImg;
+    public GameObject RuleImg;
 
     // 스테이지 선택지를 활성화 시키는 기능
     public void StageSelect()
@@ -27,6 +28,15 @@ public class Buttons : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene");
         AudioManager.instance.ChangeMusic(0);
+    }
+
+<<<<<<< HEAD
+    // 규칙 이미지 활성화 기능
+=======
+>>>>>>> 6f1a2b454c59778b02e6947ca6802bca7a8345f2
+    public void RuleButton()
+    {
+        RuleImg.SetActive(true);
     }
 
     // 처음 게임 씬으로 이동하는 기능
