@@ -35,6 +35,7 @@ public class Buttons : MonoBehaviour
         SceneManager.LoadScene("StartScene");
         AudioManager.instance.ChangeMusic(0);
         Gamemanager.instance.time = 0;
+        Time.timeScale = 1f;
     }
 
     // 1스테이지
