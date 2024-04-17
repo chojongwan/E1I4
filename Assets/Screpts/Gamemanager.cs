@@ -99,12 +99,8 @@ public class Gamemanager : MonoBehaviour
             ClearText.text = "Game Over...";
             timeText.text = "X";
         }
-<<<<<<< HEAD
-        int ST = 1000 - matchCount * 2;
-=======
         // 점수는 기본 1000에 매칭 횟수의 2배에 남은 시간 당 100점을 더함
         int ST = 1000 - matchCount * 2 + (30 - (int)time) * 100;
->>>>>>> de76501472bc19e1575b49891b6d23fccfebc9b6
         scoreText.text = ST.ToString();
     }
 
