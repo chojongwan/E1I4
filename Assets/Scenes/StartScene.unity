@@ -1575,6 +1575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StageImg: {fileID: 143694301}
   RuleImg: {fileID: 1090411220}
+  GoLobby: {fileID: 0}
   unLock: {fileID: 27345663}
 --- !u!1 &992950791
 GameObject:
@@ -1673,7 +1674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1090411221
 MonoBehaviour:
   m_ObjectHideFlags: 0

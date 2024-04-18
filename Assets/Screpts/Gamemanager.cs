@@ -68,13 +68,6 @@ public class Gamemanager : MonoBehaviour
         time += Time.deltaTime;
         TimeTxt.text = time.ToString("N2");
 
-        // 카드 개수가 0일 떄
-        if (board.transform.childCount == 0)
-        {
-            Time.timeScale = 0.0f;
-            ResultText(0);
-        }
-
         // 30초 즉 게임시간이 끝이 난다면
         if (time > 30.0f && GameEnd)
         {
