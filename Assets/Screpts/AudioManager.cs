@@ -14,6 +14,8 @@ public class AudioManager : MonoBehaviour
     {
         if (instance == null)
         {
+            // 해상도 (760, 1280, false==창모드)
+            Screen.SetResolution(760, 1280, false);
             instance = this;
             DontDestroyOnLoad(gameObject);          //씬을 이동할때 해당 오브젝트를 파괴하지 않고 그대로 씬을 넘어가는 코드
         }

@@ -23,9 +23,12 @@ public class Gamemanager : MonoBehaviour
     public GameObject SuccessTxt; // 성공 텍스트
     public GameObject FailureTxt; // 실패 텍스트
     bool GameEnd = true; // 게임 끝났는지 여부
-   
+    public GameObject board; // 카드 부모
+
     public int ST;    //현재 점수
     public int stage; //스테이지
+
+    public GameObject LobbyCheckImg;
 
     public static bool stage1Clear; //각 스테이지 클리어 불리언
     public static bool stage2Clear;
@@ -64,9 +67,19 @@ public class Gamemanager : MonoBehaviour
 
     void Update()
     {
+        // 로비에 나가는 여부 이미지가 활성화 상태라면 시간 정지
+        if (LobbyCheckImg.activeSelf)
+        {
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
+
         time += Time.deltaTime;
         TimeTxt.text = time.ToString("N2");
-        
+
         // 30초 즉 게임시간이 끝이 난다면
         if (time > 30.0f && GameEnd)
         {
@@ -75,7 +88,7 @@ public class Gamemanager : MonoBehaviour
             ResultText(1);
             DestroyTxt(); // teamNameTxt, FailureTxt off
         }
-       
+
         matchTxt.text = ("매치 : " + matchCount);  //매치 시도 횟수 표시
 
         if (fristCard != null)
@@ -114,12 +127,15 @@ public class Gamemanager : MonoBehaviour
             if (stage == 1)
             {
                 next.SetActive(true);
-                stage1Clear = true;
+                if(number == 0)
+                {
+                    stage1Clear = true;
+                }
             }
             else if (stage == 2)
             {
                 next.SetActive(true);
-                if (CardCount == 0)
+                if (number == 0)
                 {
                     stage2Clear = true;
                 }
