@@ -127,12 +127,15 @@ public class Gamemanager : MonoBehaviour
             if (stage == 1)
             {
                 next.SetActive(true);
-                stage1Clear = true;
+                if(number == 0)
+                {
+                    stage1Clear = true;
+                }
             }
             else if (stage == 2)
             {
                 next.SetActive(true);
-                if (CardCount == 0)
+                if (number == 0)
                 {
                     stage2Clear = true;
                 }
