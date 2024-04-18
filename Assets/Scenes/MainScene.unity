@@ -1556,7 +1556,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1879369396}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -2956,6 +2956,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1879369397}
+        m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
+        m_MethodName: LobbyCancel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1340721595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3823,7 +3835,7 @@ RectTransform:
   m_Children:
   - {fileID: 799519562}
   m_Father: {fileID: 1879369396}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4309,7 +4321,7 @@ RectTransform:
   - {fileID: 1340721593}
   - {fileID: 117902423}
   m_Father: {fileID: 1879369396}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4419,9 +4431,9 @@ RectTransform:
   - {fileID: 1603717824}
   - {fileID: 888887922}
   - {fileID: 1587585972}
+  - {fileID: 638931472}
   - {fileID: 1849635461}
   - {fileID: 1670874917}
-  - {fileID: 638931472}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
