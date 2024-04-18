@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 public class Gamemanager : MonoBehaviour
@@ -19,17 +18,15 @@ public class Gamemanager : MonoBehaviour
     public Text scoreText; // 점수
     public Text timeText;  // 남은 시간
     public Text ClearText; // 클리어 텍스트
-    public Text highScoreTxt; //최고기록 텍스트
     public GameObject next; // 다음 스테이지
     public GameObject TeamNameTxt; // 팀원 이름 텍스트
     public GameObject SuccessTxt; // 성공 텍스트
     public GameObject FailureTxt; // 실패 텍스트
     bool GameEnd = true; // 게임 끝났는지 여부
-   
+    public GameObject board; // 카드 부모
+
     public int ST;    //현재 점수
     public int stage; //스테이지
-
-    string hSK;
 
     public static bool stage1Clear; //각 스테이지 클리어 불리언
     public static bool stage2Clear;
@@ -50,6 +47,7 @@ public class Gamemanager : MonoBehaviour
     public Slider limitBar;    //제한시간 ui
     private void Awake()
     {
+        //Screen.SetResolution(760, 1280, true);
         if (instance == null)
         {
             instance = this;
@@ -60,13 +58,10 @@ public class Gamemanager : MonoBehaviour
     {
         // 시작 시 코루틴 시작
         StartCoroutine("TextChange");
-        Debug.Log("매니져");
         Time.timeScale = 1f;
         audioSource = GetComponent<AudioSource>();
-        //Board.instance.ReceiveValueToModify(time);
 
         ScoreUi.instance.ShowHS(stage);
-
     }
 
     void Update()
@@ -80,8 +75,9 @@ public class Gamemanager : MonoBehaviour
             Time.timeScale = 0.0f;
             GameEnd = false;
             ResultText(1);
+            DestroyTxt(); // teamNameTxt, FailureTxt off
         }
-       
+
         matchTxt.text = ("매치 : " + matchCount);  //매치 시도 횟수 표시
 
         if (fristCard != null)
@@ -171,6 +167,13 @@ public class Gamemanager : MonoBehaviour
             }
             matchCount++;   	//매치 시도 시 횟수 증가
             CardCount -= 2;
+
+            // 카드 개수가 0일 떄
+            if (board.transform.childCount == 0)
+            {
+                Time.timeScale = 0.0f;
+                ResultText(0);
+            }
 
             string name = "";  // 이름 변수 추가
 
