@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 public class Gamemanager : MonoBehaviour
@@ -19,7 +18,6 @@ public class Gamemanager : MonoBehaviour
     public Text scoreText; // 점수
     public Text timeText;  // 남은 시간
     public Text ClearText; // 클리어 텍스트
-    public Text highScoreTxt; //최고기록 텍스트
     public GameObject next; // 다음 스테이지
     public GameObject TeamNameTxt; // 팀원 이름 텍스트
     public GameObject SuccessTxt; // 성공 텍스트
@@ -28,8 +26,6 @@ public class Gamemanager : MonoBehaviour
    
     public int ST;    //현재 점수
     public int stage; //스테이지
-
-    string hSK;
 
     public static bool stage1Clear; //각 스테이지 클리어 불리언
     public static bool stage2Clear;
@@ -60,13 +56,10 @@ public class Gamemanager : MonoBehaviour
     {
         // 시작 시 코루틴 시작
         StartCoroutine("TextChange");
-        Debug.Log("매니져");
         Time.timeScale = 1f;
         audioSource = GetComponent<AudioSource>();
-        //Board.instance.ReceiveValueToModify(time);
 
         ScoreUi.instance.ShowHS(stage);
-
     }
 
     void Update()
