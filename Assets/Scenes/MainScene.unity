@@ -3314,11 +3314,11 @@ MonoBehaviour:
   scoreText: {fileID: 1045312582}
   timeText: {fileID: 1214082809}
   ClearText: {fileID: 1306897733}
-  highScoreTxt: {fileID: 488818541}
   next: {fileID: 992290115}
   TeamNameTxt: {fileID: 1603717823}
   SuccessTxt: {fileID: 1587585971}
   FailureTxt: {fileID: 888887921}
+  board: {fileID: 0}
   ST: 0
   stage: 0
   CardCount: 0
@@ -3658,7 +3658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1941779355
 Transform:
   m_ObjectHideFlags: 0
