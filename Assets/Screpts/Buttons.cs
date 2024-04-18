@@ -68,8 +68,6 @@ public class Buttons : MonoBehaviour
         {
             Gamemanager.instance.stage = 1;
         });
-
-        Gamemanager.stage1Clear = true;
     }
 
     // 2스테이지
