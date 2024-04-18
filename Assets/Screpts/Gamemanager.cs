@@ -23,7 +23,8 @@ public class Gamemanager : MonoBehaviour
     public GameObject SuccessTxt; // 성공 텍스트
     public GameObject FailureTxt; // 실패 텍스트
     bool GameEnd = true; // 게임 끝났는지 여부
-   
+    public GameObject board; // 카드 부모
+
     public int ST;    //현재 점수
     public int stage; //스테이지
 
@@ -46,6 +47,7 @@ public class Gamemanager : MonoBehaviour
     public Slider limitBar;    //제한시간 ui
     private void Awake()
     {
+        //Screen.SetResolution(760, 1280, true);
         if (instance == null)
         {
             instance = this;
@@ -75,7 +77,7 @@ public class Gamemanager : MonoBehaviour
             ResultText(1);
             DestroyTxt(); // teamNameTxt, FailureTxt off
         }
-       
+
         matchTxt.text = ("매치 : " + matchCount);  //매치 시도 횟수 표시
 
         if (fristCard != null)
@@ -165,6 +167,13 @@ public class Gamemanager : MonoBehaviour
             }
             matchCount++;   	//매치 시도 시 횟수 증가
             CardCount -= 2;
+
+            // 카드 개수가 0일 떄
+            if (board.transform.childCount == 0)
+            {
+                Time.timeScale = 0.0f;
+                ResultText(0);
+            }
 
             string name = "";  // 이름 변수 추가
 
