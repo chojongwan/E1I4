@@ -3318,7 +3318,7 @@ MonoBehaviour:
   TeamNameTxt: {fileID: 1603717823}
   SuccessTxt: {fileID: 1587585971}
   FailureTxt: {fileID: 888887921}
-  board: {fileID: 0}
+  board: {fileID: 836395223}
   ST: 0
   stage: 0
   CardCount: 0
