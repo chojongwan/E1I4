@@ -47,7 +47,6 @@ public class Gamemanager : MonoBehaviour
     public Slider limitBar;    //제한시간 ui
     private void Awake()
     {
-        //Screen.SetResolution(760, 1280, true);
         if (instance == null)
         {
             instance = this;
@@ -68,7 +67,14 @@ public class Gamemanager : MonoBehaviour
     {
         time += Time.deltaTime;
         TimeTxt.text = time.ToString("N2");
-        
+
+        // 카드 개수가 0일 떄
+        if (board.transform.childCount == 0)
+        {
+            Time.timeScale = 0.0f;
+            ResultText(0);
+        }
+
         // 30초 즉 게임시간이 끝이 난다면
         if (time > 30.0f && GameEnd)
         {
@@ -167,13 +173,6 @@ public class Gamemanager : MonoBehaviour
             }
             matchCount++;   	//매치 시도 시 횟수 증가
             CardCount -= 2;
-
-            // 카드 개수가 0일 떄
-            if (board.transform.childCount == 0)
-            {
-                Time.timeScale = 0.0f;
-                ResultText(0);
-            }
 
             string name = "";  // 이름 변수 추가
 
