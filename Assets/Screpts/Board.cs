@@ -5,6 +5,7 @@ using System.Linq;
 public class Board : MonoBehaviour
 {
     public GameObject card;
+    public GameObject GuardImg;
 
     void Start()
     {
@@ -27,9 +28,14 @@ public class Board : MonoBehaviour
             go.GetComponent<Card>().Setting(arr[i]);
 
             yield return new WaitForSeconds(0.1f);
+            if(i+1 == arr.Count)
+            {
+                GuardImg.SetActive(false);
+            }
         }
 
         Gamemanager.instance.CardCount = arr.Count;
+        
     }
 
     List<int> RandomArray(int count)
