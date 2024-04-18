@@ -28,8 +28,6 @@ public class Gamemanager : MonoBehaviour
     public int ST;    //현재 점수
     public int stage; //스테이지
 
-    public GameObject LobbyCheckImg;
-
     public static bool stage1Clear; //각 스테이지 클리어 불리언
     public static bool stage2Clear;
     public static bool stage3Clear;
@@ -67,16 +65,6 @@ public class Gamemanager : MonoBehaviour
 
     void Update()
     {
-        // 로비에 나가는 여부 이미지가 활성화 상태라면 시간 정지
-        if (LobbyCheckImg.activeSelf)
-        {
-            Time.timeScale = 0.0f;
-        }
-        else
-        {
-            Time.timeScale = 1.0f;
-        }
-
         time += Time.deltaTime;
         TimeTxt.text = time.ToString("N2");
 

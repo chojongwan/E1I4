@@ -11,24 +11,12 @@ public class Buttons : MonoBehaviour
     public GameObject StageImg;
     public GameObject RuleImg;
 
-    public GameObject GoLobby;
     public GameObject unLock;
 
     // 스테이지 선택지를 활성화 시키는 기능
     public void StageSelect()
     {
         StageImg.SetActive(true);
-    }
-
-    // 로비로 여부 확인하는 버튼
-    public void GoToLobby()
-    {
-        GoLobby.SetActive(true);
-    }
-
-    public void LobbyCancel()
-    {
-        GoLobby.SetActive(false);
     }
 
     // 게임 재시작, 시작할 때 씬 이동
