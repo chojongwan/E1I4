@@ -17,7 +17,6 @@ public class Buttons : MonoBehaviour
     public void StageSelect()
     {
         StageImg.SetActive(true);
-        PlayerPrefs.DeleteAll();
     }
 
     // 게임 재시작, 시작할 때 씬 이동
