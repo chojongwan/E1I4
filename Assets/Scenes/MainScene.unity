@@ -2434,6 +2434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StageImg: {fileID: 0}
   RuleImg: {fileID: 0}
+  Resultimg: {fileID: 0}
   GoLobby: {fileID: 0}
   unLock: {fileID: 0}
 --- !u!1 &1045312580
@@ -4456,6 +4457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StageImg: {fileID: 810635183}
   RuleImg: {fileID: 0}
+  Resultimg: {fileID: 810635183}
   GoLobby: {fileID: 1849635458}
   unLock: {fileID: 0}
 --- !u!1 &1893657309
@@ -4672,6 +4674,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1879369397}
         m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
         m_MethodName: Lobby
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1879369397}
+        m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
+        m_MethodName: ResultEnd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

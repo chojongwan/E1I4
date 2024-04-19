@@ -31,8 +31,8 @@ public class Gamemanager : MonoBehaviour
     public GameObject LobbyCheckImg;
 
     public static bool stage1Clear; //각 스테이지 클리어 불리언
-    public static bool stage2Clear;
-    public static bool stage3Clear;
+    public static bool stage2Clear; 
+    public static bool stage3Clear; 
 
     public void PlayFailSound()
     {
@@ -68,7 +68,7 @@ public class Gamemanager : MonoBehaviour
     void Update()
     {
         // 로비에 나가는 여부 이미지가 활성화 상태라면 시간 정지
-        if (LobbyCheckImg.activeSelf)
+        if (LobbyCheckImg.activeSelf || ResultImg.activeSelf)
         {
             Time.timeScale = 0.0f;
         }
