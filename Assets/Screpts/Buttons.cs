@@ -10,6 +10,7 @@ public class Buttons : MonoBehaviour
 {
     public GameObject StageImg;
     public GameObject RuleImg;
+    public GameObject Resultimg;
 
     public GameObject GoLobby;
     public GameObject unLock;
@@ -29,6 +30,11 @@ public class Buttons : MonoBehaviour
     public void LobbyCancel()
     {
         GoLobby.SetActive(false);
+    }
+
+    public void ResultEnd()
+    {
+        Resultimg.SetActive(false);
     }
 
     // 게임 재시작, 시작할 때 씬 이동
